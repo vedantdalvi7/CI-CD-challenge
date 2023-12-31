@@ -2,6 +2,24 @@ name: CI/CD Pipeline
 
 on: push
 
+
 jobs:
     test:
-    runs: actio
+        runs-on: ubuntu-latest
+        steps:
+         - name: checkout repo
+         - uses: actions/checkout@v1
+         - name: run python script
+           run: python hello-world.py
+           
+    build:
+        runs-on: ubuntu-latest
+        steps:
+         - name: checkout repo
+         - uses: actions/checkout@v1
+
+         - name: create artifact
+         - uses: actions/upload-artifact@v2
+        
+        
+        
